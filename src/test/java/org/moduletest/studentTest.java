@@ -23,19 +23,19 @@ class studentTest {
     @BeforeEach
     public void crateFile()
     {
-        System.out.println("Создаем файл");
+        System.out.println("Создаем файл с данными");
 
     }
     //NSA выполяем после каждого теста
     @AfterEach
     public void deleteFile()
     {
-        System.out.println("Удаляем файл");
+        System.out.println("Удаляем файл с данными");
     }
 
     /* анотация для повторяющегося теста параметры последовательные данные*/
    //поскольку проеряем на корретные оценки то значения должны быть 2,3,4,5
-    @RepeatedTest(value = 4,name="Проверка класса на корректные оценки")
+    @RepeatedTest(value = 4,name="Повторящийся тест. Проверка класса на корректные оценки")
      public void marksInRange(RepetitionInfo repetitionInfo)
     {
 
@@ -49,7 +49,7 @@ class studentTest {
      }
 
      /*в качестве источника данных делаем класс MarksGenerator*/
-    @ParameterizedTest(name = "Проверка класса на НЕ корректные оценки")
+    @ParameterizedTest(name = "Параметризированный тест. Проверка класса на НЕ корректные оценки")
     @MethodSource("org.moduletest.MarksGenerator#ints")
         public void marksNotInRange(int x)
     {
@@ -69,6 +69,6 @@ class EducationExtantion implements BeforeEachCallback
     public void beforeEach(ExtensionContext context) throws Exception
     {
         System.out.println();
-        System.out.println("Провкрка расширения test Extantion");
+        System.out.println("Проверка расширения для нашего класса test BeforeEachCallback");
     }
 }

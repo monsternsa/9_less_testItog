@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -28,6 +29,6 @@ public class Student {
     }
 
     public List<Integer> getMarks() {
-        return marks;
+        return Collections.unmodifiableList(marks);
     }
 }
